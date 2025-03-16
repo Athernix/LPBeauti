@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clínica XYZ - Gestión de Citas</title>
+    <script>
+        // Verificar si ya hay una sesión activa
+        const userRole = localStorage.getItem('userRole');
+        
+        // Redirección automática según rol
+        if(userRole === 'admin') {
+            window.location.href = '/pages/admin/dashboard.html';
+        } else if(userRole === 'client') {
+            window.location.href = '/pages/client/home.html';
+        } else {
+            window.location.href = '/auth/login.html';
+        }
+    </script>
 </head>
 <body>
-    
+    <!-- Mensaje de carga para usuarios sin JavaScript -->
+    <noscript>
+        <h1>Habilita JavaScript para usar el sistema</h1>
+    </noscript>
 </body>
 </html>

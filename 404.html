@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página no encontrada - Clínica XYZ</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="error-page">
+    <header>
+        <img src="/assets/images/logo.png" alt="Logo clínica">
+    </header>
+    
+    <main>
+        <div class="error-container">
+            <h1>¡Ups! Error 404</h1>
+            <p>La página que buscas no existe o fue movida</p>
+            
+            <div class="cta-buttons">
+                <a href="/index.html" class="btn">Ir al inicio</a>
+                <a href="/auth/login.html" class="btn">Iniciar sesión</a>
+            </div>
+            
+            <!-- Mensaje solo para administradores -->
+            <div class="admin-info" style="display: none;">
+                <p>Error detallado: <span id="error-path"></span></p>
+                <button onclick="history.back()">Volver atrás</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar detalles técnicos solo para admins
+        if(localStorage.getItem('userRole') === 'admin') {
+            document.querySelector('.admin-info').style.display = 'block';
+            document.getElementById('error-path').textContent = window.location.pathname;
+        }
+    </script>
+</body>
+</html>
