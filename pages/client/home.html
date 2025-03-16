@@ -3,73 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP Beauty - Diseños exclusivos y gestión profesional de Uñas</title>
+    <title>LP Beauty</title>
     <link rel="stylesheet" href="assets/css/HomeStiles.css">
 </head>
 <body>
     <div class="Parent">
-    <!-- Menú lateral izquierdo -->
-    <div class="top-menu">
-        <div class="menu-container">
-            <div class="menu-item">
-                <div class="menu-icon">⊞</div>
-                <div class="menu-text">Inicio</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">📅</div>
-                <div class="menu-text">Citas</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">💵</div>
-                <div class="menu-text">Pagos</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">👤</div>
-                <div class="menu-text">Perfil</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">⚙️</div>
-                <div class="menu-text">Ajustes</div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-            <h1>LP Beauty</h1>
-            <p>Diseños exclusivos y gestión profesional de Uñas</p>
-            <div class="buttons">
-                <button class="btn-primary">Reservar Cita</button>
-                <button class="btn-secondary">Catálogo de Uñas</button>
+        <!-- Menú lateral izquierdo -->
+        <div class="top-menu">
+            <div class="menu-container">
+                <div class="menu-item">
+                    <div class="menu-icon">⊞</div>
+                    <div class="menu-text">Inicio</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📅</div>
+                    <div class="menu-text">Citas</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">💵</div>
+                    <div class="menu-text">Pagos</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">👤</div>
+                    <div class="menu-text">Perfil</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">⚙️</div>
+                    <div class="menu-text">Ajustes</div>
+                </div>
             </div>
         </div>
         
-        <!-- Galería -->
-        <div class="gallery-section">
-            <h2>Trabajos recientes</h2>
-            <div class="gallery">
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-            </div>
-            <div class="gallery">
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-                <div class="gallery-item"></div>
-            </div>
+        <!-- Botones de autenticación -->
+        <div class="auth-buttons">
+            <button class="btn-login">Iniciar Sesión</button>
+            <button class="btn-register">Registrarse</button>
         </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            <h3>Contacto</h3>
-            <p><i>✉️</i> info@lpnailstudio.com</p>
-            <p><i>📱</i> +12 **********</p>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>LP Beauty</h1>
+                <p>Diseños exclusivos y gestión profesional de Uñas</p>
+                <div class="buttons">
+                    <button class="btn-primary">Reservar Cita</button>
+                    <button class="btn-secondary">Catálogo de Uñas</button>
+                </div>
+            </div>
+            
+            <!-- Galería -->
+            <div class="gallery-section">
+                <h2>Trabajos recientes</h2>
+                <div class="gallery">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                </div>
+                <div class="gallery">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <h3>Contacto</h3>
+                <p><i>✉️</i> info@lpnailstudio.com</p>
+                <p><i>📱</i> +12 **********</p>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- Modal de autenticación -->
+    <div class="overlay hidden"></div>
+    <div class="auth-modal hidden">
+        <button class="close-modal">×</button>
+        <h2>Iniciar Sesión</h2>
+        <form class="auth-form">
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn-primary">Entrar</button>
+        </form>
+        <p class="auth-switch">¿No tienes cuenta? <a href="#" class="switch-form">Regístrate</a></p>
+    </div>
+
+    <script>
+        // Funcionalidad básica del modal
+        const authButtons = document.querySelectorAll('.btn-login, .btn-register');
+        const overlay = document.querySelector('.overlay');
+        const authModal = document.querySelector('.auth-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const switchForm = document.querySelector('.switch-form');
+
+        authButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                overlay.classList.remove('hidden');
+                authModal.classList.remove('hidden');
+            });
+        });
+
+        [overlay, closeModal].forEach(element => {
+            element.addEventListener('click', () => {
+                overlay.classList.add('hidden');
+                authModal.classList.add('hidden');
+            });
+        });
+
+        // Cambiar entre login y registro
+        switchForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isLogin = authModal.querySelector('h2').textContent === 'Iniciar Sesión';
+            authModal.querySelector('h2').textContent = isLogin ? 'Registrarse' : 'Iniciar Sesión';
+            authModal.querySelector('button[type="submit"]').textContent = isLogin ? 'Registrarse' : 'Entrar';
+            switchForm.textContent = isLogin ? '¿Ya tienes cuenta? Inicia Sesión' : '¿No tienes cuenta? Regístrate';
+        });
+    </script>
 </body>
 </html>
