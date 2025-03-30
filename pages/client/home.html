@@ -1,126 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP Beauty</title>
-    <link rel="stylesheet" href="assets/css/HomeStiles.css">
+    <meta name="description" content="LP Beauty - Centro de estética profesional con los mejores tratamientos de belleza">
+    <title>LP Beauty - Centro de Estética</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Fuentes y estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/HomeStiles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/MenuContainer.css">
+    <script src="./assets/js/menuToggle.js" defer></script>
 </head>
+
 <body>
     <div class="Parent">
-        <!-- Menú lateral izquierdo -->
-        <div class="top-menu">
+        <!-- Menú lateral -->
+        <nav class="sidebar" aria-label="Menú principal">
             <div class="menu-container">
-                <div class="menu-item">
-                    <div class="menu-icon">⊞</div>
-                    <div class="menu-text">Inicio</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon">📅</div>
-                    <div class="menu-text">Citas</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon">💵</div>
-                    <div class="menu-text">Pagos</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon">👤</div>
-                    <div class="menu-text">Perfil</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon">⚙️</div>
-                    <div class="menu-text">Ajustes</div>
-                </div>
+                <!-- Elementos del menú -->
+                <a href="#" class="menu-item active" aria-current="page">
+                    <i class="menu-icon fa-solid fa-house" aria-hidden="true"></i>
+                    <span class="menu-text">Inicio</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <span class="menu-text">Citas</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon fa-solid fa-credit-card" aria-hidden="true"></i>
+                    <span class="menu-text">Pagos</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon fa-solid fa-user" aria-hidden="true"></i>
+                    <span class="menu-text">Perfil</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon fa-solid fa-gear" aria-hidden="true"></i>
+                    <span class="menu-text">Ajustes</span>
+                </a>
             </div>
-        </div>
-        
+        </nav>
+
         <!-- Botones de autenticación -->
         <div class="auth-buttons">
-            <button class="btn-login">Iniciar Sesión</button>
-            <button class="btn-register">Registrarse</button>
+            <button class="btn-login" aria-label="Iniciar sesión">
+                <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
+                <span>Iniciar Sesión</span>
+            </button>
+            <button class="btn-register" aria-label="Registrarse">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                <span>Registrarse</span>
+            </button>
         </div>
+
+        <!-- Botón móvil para abrir el menú -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
 
         <!-- Contenido principal -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <h1>LP Beauty</h1>
-                <p>Diseños exclusivos y gestión profesional de Uñas</p>
-                <div class="buttons">
-                    <button class="btn-primary">Reservar Cita</button>
-                    <button class="btn-secondary">Catálogo de Uñas</button>
-                </div>
+        <main class="main-content">
+            <div class="Encabezado-Principal">
+                <img src="logo.png" alt="LP Beauty Logo" width="80" height="80">
+                <header class="Nombre-Principal">
+                    <h1>LP BEAUTY</h1>
+                </header>
             </div>
-            
-            <!-- Galería -->
-            <div class="gallery-section">
-                <h2>Trabajos recientes</h2>
-                <div class="gallery">
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
+            <!-- Navegación de categorías -->
+            <nav class="NavBarCategorias" aria-label="Categorías de servicios">
+                <ul>
+                    <li><a href="#" class="active">Manos</a></li>
+                    <li><a href="#">Pies</a></li>
+                    <li><a href="#">Cabello</a></li>
+                    <li><a href="#">Rostro</a></li>
+                </ul>
+            </nav>
+
+            <!-- Catálogo de servicios -->
+            <section class="Catalogo" aria-label="Nuestros servicios">
+                <!-- Elementos del catálogo -->
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+                <article class="catalog-item">
+                    <img src="/assets/images/general/Manicura/b80ceb33420b5f3121c19f8ff56df381.jpg" alt="Manicura Premium" loading="lazy">
+                    <div class="item-info">
+                        <h3>Manicura Premium</h3>
+                        <p>Desde $45.000</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Sección de contacto -->
+            <footer class="contact-section">
+                <div class="contact-info">
+                    <p>
+                        <a href="mailto:info@nailschedule.com">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i> info@nailschedule.com
+                        </a>
+                    </p>
+                    <p>
+                        <a href="tel:+571234567890">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i> +57 123 456 7890
+                        </a>
+                    </p>
                 </div>
-                <div class="gallery">
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
-                    <div class="gallery-item"></div>
-                </div>
-            </div>
-            
-            <!-- Footer -->
-            <div class="footer">
-                <h3>Contacto</h3>
-                <p><i>✉️</i> info@lpnailstudio.com</p>
-                <p><i>📱</i> +12 **********</p>
-            </div>
-        </div>
+            </footer>
+        </main>
     </div>
 
-    <!-- Modal de autenticación -->
-    <div class="overlay hidden"></div>
-    <div class="auth-modal hidden">
-        <button class="close-modal">×</button>
-        <h2>Iniciar Sesión</h2>
-        <form class="auth-form">
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit" class="btn-primary">Entrar</button>
-        </form>
-        <p class="auth-switch">¿No tienes cuenta? <a href="#" class="switch-form">Regístrate</a></p>
-    </div>
 
-    <script>
-        // Funcionalidad básica del modal
-        const authButtons = document.querySelectorAll('.btn-login, .btn-register');
-        const overlay = document.querySelector('.overlay');
-        const authModal = document.querySelector('.auth-modal');
-        const closeModal = document.querySelector('.close-modal');
-        const switchForm = document.querySelector('.switch-form');
-
-        authButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                overlay.classList.remove('hidden');
-                authModal.classList.remove('hidden');
-            });
-        });
-
-        [overlay, closeModal].forEach(element => {
-            element.addEventListener('click', () => {
-                overlay.classList.add('hidden');
-                authModal.classList.add('hidden');
-            });
-        });
-
-        // Cambiar entre login y registro
-        switchForm.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isLogin = authModal.querySelector('h2').textContent === 'Iniciar Sesión';
-            authModal.querySelector('h2').textContent = isLogin ? 'Registrarse' : 'Iniciar Sesión';
-            authModal.querySelector('button[type="submit"]').textContent = isLogin ? 'Registrarse' : 'Entrar';
-            switchForm.textContent = isLogin ? '¿Ya tienes cuenta? Inicia Sesión' : '¿No tienes cuenta? Regístrate';
-        });
-    </script>
 </body>
+
 </html>
