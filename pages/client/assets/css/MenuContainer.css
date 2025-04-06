@@ -1,181 +1,161 @@
+:root {
+    --sidebar-width: 250px;
+    --sidebar-bg: #FFFFFF;
+    --menu-item-padding: 0.75rem 1rem;
+    --menu-icon-size: 1.5rem;
+    --primary-hover: #F4F1FF;
+    --active-indicator: #7A5CFF;
+    --text-primary: #2D2D2D;
+    --text-secondary: #5A5A5A;
+    --transition-config: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sidebar structure */
+.sidebar {
+    position: fixed;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    transform: translateX(-100%);
+    transition: var(--transition-config);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
 .menu-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
-    /* Espaciado entre elementos */
-    width: 100%;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
 }
 
-
-/* Responsive styles */
-
-@media (max-width: 1024px) {
-    .menu-container {
-        flex-direction: row;
-        /* Cambiar a fila en tablets */
-        justify-content: space-evenly;
-        /* Espaciado uniforme */
-        padding: 0 1rem;
-        /* Agregar padding horizontal */
-        gap: var(--space-sm);
-        /* Ajustar el espaciado */
-    }
-    .menu-item {
-        flex: 1;
-        /* Ajustar el tamaño de los elementos */
-        text-align: center;
-        /* Centrar texto */
-        padding: 0.6rem;
-        /* Ajustar el padding */
-        border-radius: var(--radius-sm);
-        /* Bordes redondeados */
-        transition: transform 0.2s ease, background 0.2s ease;
-        /* Transiciones suaves */
-    }
-    .menu-item:hover {
-        transform: scale(1.05);
-        /* Ampliar ligeramente al pasar */
-        background: var(--primary-100);
-        /* Fondo morado claro */
-    }
-    .menu-icon {
-        font-size: 1.6rem;
-        /* Ajustar el tamaño del icono */
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-container {
-        flex-direction: column;
-        /* Cambiar a columna en pantallas pequeñas */
-        align-items: center;
-        /* Centrar elementos */
-        gap: 1rem;
-        /* Ajustar el espaciado */
-    }
-    .menu-item {
-        font-size: 0.9rem;
-        /* Reducir el tamaño de fuente */
-        padding: 0.8rem;
-        /* Ajustar el padding */
-        width: 100%;
-        /* Ajustar el ancho */
-        max-width: 280px;
-        /* Limitar el ancho máximo */
-        box-shadow: var(--shadow-card);
-        /* Agregar sombra */
-    }
-    .menu-icon {
-        font-size: 1.4rem;
-        /* Reducir el tamaño del icono */
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-container {
-        flex-direction: column;
-        /* Mantener columna en móviles */
-        align-items: center;
-        /* Centrar elementos */
-        gap: 1.2rem;
-        /* Ajustar el espaciado */
-    }
-    .menu-item {
-        font-size: 0.85rem;
-        /* Reducir el tamaño de fuente */
-        padding: 0.6rem;
-        /* Ajustar el padding */
-        width: 90%;
-        /* Ajustar el ancho */
-        max-width: 250px;
-        /* Limitar el ancho máximo */
-        box-shadow: var(--shadow-card);
-        /* Agregar sombra */
-    }
-    .menu-icon {
-        font-size: 1.2rem;
-        /* Reducir aún más el tamaño del icono */
-    }
-    .menu-item img {
-        width: 40px;
-        /* Ajustar el ancho de las imágenes */
-        height: 40px;
-        /* Ajustar la altura de las imágenes */
-        object-fit: cover;
-        /* Asegurar que las imágenes se ajusten correctamente */
-        border-radius: 50%;
-        /* Hacer las imágenes circulares */
-    }
-}
-
-
-/* Estilos de los elementos del menú */
-
+/* Menu items */
 .menu-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: var(--space-xs) 0;
-    /* Espaciado interno */
-    cursor: pointer;
-    /* Cambiar cursor al pasar */
-    transition: background var(--transition-duration), transform var(--transition-duration);
-    /* Transiciones */
-    position: relative;
+    padding: var(--menu-item-padding);
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
     text-decoration: none;
-    /* Sin subrayado */
+    transition: var(--transition-config);
+    position: relative;
 }
 
-.menu-item:hover {
-    background: var(--primary-100);
-    /* Fondo morado claro al pasar */
+.menu-item.active {
+    background: var(--primary-hover);
+    color: var(--active-indicator);
+    font-weight: 500;
 }
 
-.menu-item.active::after {
+.menu-item:hover:not(.active) {
+    background: rgba(244, 241, 255, 0.5);
+}
+
+/* Active item indicator */
+.menu-item.active::before {
     content: '';
     position: absolute;
-    right: 0;
-    height: 24px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 3px;
-    background: var(--primary-100);
-    /* Indicador morado */
-    border-radius: 2px;
-    /* Bordes redondeados */
+    height: 60%;
+    background: var(--active-indicator);
+    border-radius: 0 3px 3px 0;
 }
 
-
-/* Iconos del menú */
-
+/* Icons and text */
 .menu-icon {
-    font-size: 1.8rem;
-    /* Tamaño de fuente */
-    color: var(--neutral-600);
-    /* Color secundario */
-    margin-bottom: 0.5rem;
-    /* Espaciado inferior */
-    transition: color var(--transition-duration);
-    /* Transición de color */
+    width: var(--menu-icon-size);
+    margin-right: 1rem;
+    text-align: center;
+    color: inherit;
 }
-
-.menu-item.active .menu-icon {
-    color: var(--primary-500);
-    /* Color morado para el activo */
-}
-
-
-/* Texto del menú */
 
 .menu-text {
-    font-size: 0.75rem;
-    /* Tamaño de fuente */
-    font-weight: 600;
-    /* Peso de fuente */
-    color: var(--neutral-600);
-    /* Color secundario */
-    text-transform: uppercase;
-    /* Texto en mayúsculas */
-    letter-spacing: 0.5px;
-    /* Espaciado entre letras */
-    transition: color var(--transition-duration);
-    /* Transición de color */
+    white-space: nowrap;
+    color: inherit;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1rem;
+    z-index: 1100;
+    background: var(--active-indicator);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(122, 92, 255, 0.25);
+    transition: var(--transition-config);
+}
+
+.mobile-menu-toggle i {
+    font-size: 1.5rem;
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(122, 92, 255, 0.35);
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 280px;
+    }
+
+    .menu-item {
+        padding: 1rem;
+    }
+
+    .sidebar::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 280px;
+        width: calc(100vw - 280px);
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(2px);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .sidebar.active::after {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .sidebar {
+        transform: translateX(0) !important;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+    }
 }
