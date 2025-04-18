@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos</title>
+    <!-- Fuentes y estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/MenuContainer.css">
+    <link rel="stylesheet" href="./assets/css/Pago.css">
+    <script src="./assets/js/menuToggle.js" defer></script>
+    <script src="./assets/js/auth.js" defer></script>
+</head>
+<body>
+    <div class="Parent">
+        <!-- Menú lateral -->
+        <div class="Menu">
+            <nav class="sidebar" aria-label="Menú principal">
+                <div class="menu-container">
+                    <!-- Elementos del menú -->
+                    <a href="#" class="menu-item">
+                        <i class="menu-icon fa-solid fa-house"></i>
+                        <span class="menu-text">Inicio</span>
+                    </a>
+                    <a href="./Calendario.html" class="menu-item">
+                        <i class="menu-icon fa-solid fa-calendar-days"></i>
+                        <span class="menu-text">Calendario</span>
+                    </a>
+                    <a href="#" class="menu-item active" aria-current="page">
+                        <i class="menu-icon fa-solid fa-credit-card"></i>
+                        <span class="menu-text">Pagos</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="menu-icon fa-solid fa-user"></i>
+                        <span class="menu-text">Perfil</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="menu-icon fa-solid fa-gear"></i>
+                        <span class="menu-text">Ajustes</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+                      <!-- Botón para menú móvil -->
+                      <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+        <!-- Contenido principal -->
+        <div class="MainContent">
+            <h1 class="title">Métodos de Pago</h1>
+            <!-- Navegación de métodos de pago -->
+            <nav class="payment-nav">
+                <ul class="payment-options">
+                    <li class="payment-option active" data-method="nequi">
+                        <i class="fas fa-mobile-alt"></i> Nequi
+                    </li>
+                    <li class="payment-option" data-method="card">
+                        <i class="fas fa-credit-card"></i> Tarjetas
+                    </li>
+                    <li class="payment-option" data-method="others">
+                        <i class="fas fa-ellipsis-h"></i> Otros Métodos
+                    </li>
+                </ul>
+            </nav>
+            <!-- Secciones de métodos de pago -->
+            <div class="payment-content">
+                <!-- Sección de Nequi -->
+                <div class="payment-section" id="nequi-section">
+                    <h2 class="method-title">Nequi</h2>
+                    <p class="method-description">Realiza tu pago a través de Nequi escaneando el siguiente código QR:</p>
+                    <div class="qr-container">
+                        <img src="./assets/images/nequi-qr.png" alt="Código QR Nequi" class="qr-code">
+                    </div>
+                </div>
+                <!-- Sección de Tarjetas -->
+                <div class="payment-section hidden" id="card-section">
+                    <h2 class="method-title">Tarjetas de Crédito/Débito</h2>
+                    <form action="/process-payment" method="POST" class="payment-form">
+                        <div class="form-group">
+                            <label for="card-number">Número de Tarjeta:</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Nombre en la Tarjeta:</label>
+                            <input type="text" id="card-name" name="card-name" placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Fecha de Expiración:</label>
+                            <input type="month" id="expiry-date" name="expiry-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                        <button type="submit" class="pay-button">Pagar</button>
+                    </form>
+                </div>
+                <!-- Sección de Otros Métodos -->
+                <div class="payment-section hidden" id="others-section">
+                    <h2 class="method-title">Otros Métodos</h2>
+                    <p class="method-description">Próximamente habilitaremos más métodos de pago.</p>
+                </div>
+            </div>
+
+            <!-- Historial de Pagos -->
+            <div class="payment-history">
+                <h2 class="history-title">Historial de Pagos</h2>
+
+                <!-- Filtro por Categoría -->
+                <div class="history-filters">
+                    <label for="category-filter">Categoría:</label>
+                    <select id="category-filter" class="filter-dropdown">
+                        <option value="all">Todas</option>
+                        <option value="uñas">Uñas</option>
+                        <option value="cabello">Cabello</option>
+                        <option value="pies">Pies</option>
+                        <option value="cara">Cara</option>
+                    </select>
+
+                    <label for="subcategory-filter">Subcategoría:</label>
+                    <select id="subcategory-filter" class="filter-dropdown">
+                        <option value="all">Todas</option>
+                        <option value="dippin" data-category="uñas">Dippin</option>
+                        <option value="tips" data-category="uñas">Tips</option>
+                        <option value="press-on" data-category="uñas">Press On</option>
+                        <option value="techgel" data-category="uñas">TechGel</option>
+                        <option value="corte" data-category="cabello">Corte</option>
+                        <option value="color" data-category="cabello">Color</option>
+                        <option value="pedicure" data-category="pies">Pedicure</option>
+                        <option value="facial" data-category="cara">Facial</option>
+                    </select>
+                </div>
+
+                <!-- Tabla de Historial -->
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Categoría</th>
+                            <th>Subcategoría</th>
+                            <th>Método</th>
+                            <th>Monto</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-category="uñas" data-subcategory="dippin">
+                            <td>2023-10-01</td>
+                            <td>Uñas</td>
+                            <td>Dippin</td>
+                            <td>Nequi</td>
+                            <td>$50,000</td>
+                            <td>Completado</td>
+                        </tr>
+                        <tr data-category="cabello" data-subcategory="corte">
+                            <td>2023-09-15</td>
+                            <td>Cabello</td>
+                            <td>Corte</td>
+                            <td>Tarjeta de Crédito</td>
+                            <td>$120,000</td>
+                            <td>Completado</td>
+                        </tr>
+                        <tr data-category="pies" data-subcategory="pedicure">
+                            <td>2023-09-01</td>
+                            <td>Pies</td>
+                            <td>Pedicure</td>
+                            <td>Nequi</td>
+                            <td>$30,000</td>
+                            <td>Pendiente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Funcionalidad para el menú móvil
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Funcionalidad para alternar métodos de pago
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                const method = option.getAttribute('data-method');
+                document.querySelectorAll('.payment-section').forEach(section => {
+                    section.classList.toggle('hidden', section.id !== `${method}-section`);
+                });
+            });
+        });
+
+        // Funcionalidad para filtrar el historial de pagos
+        const categoryFilter = document.getElementById('category-filter');
+        const subcategoryFilter = document.getElementById('subcategory-filter');
+        const historyRows = document.querySelectorAll('.history-table tbody tr');
+
+        categoryFilter.addEventListener('change', () => {
+            const selectedCategory = categoryFilter.value;
+            filterHistory(selectedCategory, subcategoryFilter.value);
+        });
+
+        subcategoryFilter.addEventListener('change', () => {
+            const selectedSubcategory = subcategoryFilter.value;
+            filterHistory(categoryFilter.value, selectedSubcategory);
+        });
+
+        function filterHistory(category, subcategory) {
+            historyRows.forEach(row => {
+                const rowCategory = row.getAttribute('data-category');
+                const rowSubcategory = row.getAttribute('data-subcategory');
+
+                const matchesCategory = category === 'all' || rowCategory === category;
+                const matchesSubcategory = subcategory === 'all' || rowSubcategory === subcategory;
+
+                row.style.display = matchesCategory && matchesSubcategory ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

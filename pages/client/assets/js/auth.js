@@ -6,12 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedOutState = document.querySelector(".auth-state.logged-out");
     const loggedInState = document.querySelector(".auth-state.logged-in");
 
-    // Evento para iniciar sesión
-    loginButton.addEventListener("click", () => {
-        // Simular autenticación del usuario
-        localStorage.setItem('userToken', 'dummyToken'); // Guardar token simulado
-        updateAuthUI(true);
-    });
+    // Evento para iniciar sesión simulado vinculado con btn-login
+    
 
     // Evento para cerrar sesión
     logoutButton.addEventListener("click", () => {
