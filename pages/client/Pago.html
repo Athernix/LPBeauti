@@ -14,7 +14,6 @@
 </head>
 <body>
     <div class="Parent">
-        <!-- Menú lateral -->
         <div class="Menu">
             <nav class="sidebar" aria-label="Menú principal">
                 <div class="menu-container">
@@ -46,10 +45,8 @@
                       <button class="mobile-menu-toggle" aria-label="Abrir menú">
                         <i class="fa-solid fa-bars" aria-hidden="true"></i>
                     </button>
-        <!-- Contenido principal -->
         <div class="MainContent">
             <h1 class="title">Métodos de Pago</h1>
-            <!-- Navegación de métodos de pago -->
             <nav class="payment-nav">
                 <ul class="payment-options">
                     <li class="payment-option active" data-method="nequi">
@@ -63,9 +60,7 @@
                     </li>
                 </ul>
             </nav>
-            <!-- Secciones de métodos de pago -->
             <div class="payment-content">
-                <!-- Sección de Nequi -->
                 <div class="payment-section" id="nequi-section">
                     <h2 class="method-title">Nequi</h2>
                     <p class="method-description">Realiza tu pago a través de Nequi escaneando el siguiente código QR:</p>
@@ -73,7 +68,6 @@
                         <img src="./assets/images/nequi-qr.png" alt="Código QR Nequi" class="qr-code">
                     </div>
                 </div>
-                <!-- Sección de Tarjetas -->
                 <div class="payment-section hidden" id="card-section">
                     <h2 class="method-title">Tarjetas de Crédito/Débito</h2>
                     <form action="/process-payment" method="POST" class="payment-form">
@@ -96,7 +90,6 @@
                         <button type="submit" class="pay-button">Pagar</button>
                     </form>
                 </div>
-                <!-- Sección de Otros Métodos -->
                 <div class="payment-section hidden" id="others-section">
                     <h2 class="method-title">Otros Métodos</h2>
                     <p class="method-description">Próximamente habilitaremos más métodos de pago.</p>
@@ -175,7 +168,7 @@
         </div>
     </div>
     <script>
-        // Funcionalidad para el menú móvil
+        // Toggle menu functionality for responsive design
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const sidebar = document.querySelector('.sidebar');
 
@@ -183,7 +176,7 @@
             sidebar.classList.toggle('active');
         });
 
-        // Funcionalidad para alternar métodos de pago
+        // Payment method toggle functionality
         document.querySelectorAll('.payment-option').forEach(option => {
             option.addEventListener('click', () => {
                 document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active'));
@@ -195,7 +188,7 @@
             });
         });
 
-        // Funcionalidad para filtrar el historial de pagos
+        // Filter functionality for payment history
         const categoryFilter = document.getElementById('category-filter');
         const subcategoryFilter = document.getElementById('subcategory-filter');
         const historyRows = document.querySelectorAll('.history-table tbody tr');
