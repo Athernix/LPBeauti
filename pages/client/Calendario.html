@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario Moderno</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/Calendario.css">
-    <link rel="stylesheet" href="./assets/css/MenuContainer.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="./assets/js/menuToggle.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Moderno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/Calendario.css">
+  <link rel="stylesheet" href="./assets/css/MenuContainer.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="./assets/js/menuToggle.js" defer></script>
 </head>
 <body>
-    <!-- Menú lateral -->
-    <nav class="sidebar" aria-label="Menú principal">
+  <!-- Menú lateral -->
+  <nav class="sidebar" aria-label="Menú principal">
         <div class="menu-container">
             <!-- Elementos del menú -->
             <a href="./home.html" class="menu-item">
@@ -23,7 +23,7 @@
                 <i class="menu-icon fa-solid fa-calendar-days" aria-hidden="true"></i>
                 <span class="menu-text">Calendario</span>
             </a>
-            <a href="#" class="menu-item">
+            <a href="./Pago.html" class="menu-item">
                 <i class="menu-icon fa-solid fa-credit-card" aria-hidden="true"></i>
                 <span class="menu-text">Pagos</span>
             </a>
@@ -56,7 +56,7 @@
                     <i class="fas fa-caret-down"></i>
                 </button>
                 <ul class="month-list" id="monthList">
-                    <!-- Months will be dynamically generated -->
+                    
                 </ul>
             </div>
             <button class="nav-button" id="nextMonth" aria-label="Mes siguiente">
@@ -67,12 +67,60 @@
           <div class="view-options">
             <button class="view-button" aria-label="Vista de día">Día</button>
             <button class="view-button active" aria-label="Vista de semana">Semana</button>
-            <button class="view-button" aria-label="Vista de mes">Mes</button>
+            
           </div>
         </div>
       
         <div class="calendar-grid" id="calendarGrid" role="grid" aria-label="Calendario">
-          <!-- Aquí se generarán las semanas y días dinámicamente -->
+          <!-- Generación dinámica de semanas y días -->
+          <div class="week-row" role="row">
+            <div class="day-cell" role="gridcell" aria-label="Lunes">
+              <span class="day-number">1</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Martes">
+              <span class="day-number">2</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Miércoles">
+              <span class="day-number">3</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Jueves">
+              <span class="day-number">4</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Viernes">
+              <span class="day-number">5</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Sábado">
+              <span class="day-number">6</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Domingo">
+              <span class="day-number">7</span>
+            </div>
+          </div>
+          <div class="week-row" role="row"></div>
+            <div class="day-cell" role="gridcell" aria-label="Lunes">
+              <span class="day-number">8</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Martes">
+              <span class="day-number">9</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Miércoles">
+              <span class="day-number">10</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Jueves">
+              <span class="day-number">11</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Viernes">
+              <span class="day-number">12</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Sábado">
+              <span class="day-number">13</span>
+            </div>
+            <div class="day-cell" role="gridcell" aria-label="Domingo">
+              <span class="day-number">14</span>
+            </div>
+          </div>
+          
+          
         </div>
       </main>
       <script src="./assets/js/Calendario.js"></script>

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedInState = document.querySelector(".auth-state.logged-in");
 
     // Evento para iniciar sesión simulado vinculado con btn-login
-    
+        
 
     // Evento para cerrar sesión
     logoutButton.addEventListener("click", () => {

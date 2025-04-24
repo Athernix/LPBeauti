@@ -28,7 +28,7 @@
                     <i class="menu-icon fa-solid fa-calendar-days" aria-hidden="true"></i>
                     <span class="menu-text">Calendario</span>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="./Pago.html" class="menu-item">
                     <i class="menu-icon fa-solid fa-credit-card" aria-hidden="true"></i>
                     <span class="menu-text">Pagos</span>
                 </a>
@@ -60,6 +60,8 @@
                     <img src="./assets/images/default-avatar.jpg" alt="Foto de perfil" class="profile-avatar">
                     <h2 class="profile-name">Nombre del Usuario</h2>
                     <p class="profile-email">correo@example.com</p>
+                    <p class="profile-phone">+57 300 123 4567</p>
+                    <button id="logout-button">Cerrar Sesión</button>
                 </div>
             </section>
 
@@ -68,7 +70,7 @@
                 <ul>
                     <li><a href="#historial-citas">Historial de Citas</a></li>
                     <li><a href="#historial-pagos">Historial de Pagos</a></li>
-                    <li><a href="#">Servicios que le han gustado</a></li>
+                    <li><a href="#ServiciosGustados">Servicios que le han gustado</a></li>
                     <li>
                         <h2>Método de Pago Favorito</h2>
                         <div class="payment-methods">
@@ -90,7 +92,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><button id="logout-button">Cerrar Sesión</button></li>
+                    
                 </ul>
             </section>
 
@@ -126,10 +128,29 @@
                         <p><strong>Monto:</strong> $30,000</p>
                         <p><strong>Método:</strong> Nequi</p>
                     </div>
-                    <!-- Agregar más pagos aquí -->
+                    <!-- Pse -->
+                     <div class="history-item">
+                        <p><strong>Fecha:</strong> 05/09/2023</p>
+                        <p><strong>Monto:</strong> $20,000</p>
+                        <p><strong>Método:</strong> PSE</p>
                 </div>
             </section>
+            <!-- Servicios que le han gustado -->
+            <section id="ServiciosGustados" class="history-section">
+                <h2>Servicios que le han gustado</h2>
+                <div class="history-list">
+                    <div class="history-item">
+                        <p><strong>Servicio:</strong> Manicure Spa</p>
+                        <p><strong>Fecha:</strong> 12/09/2023</p>
+                    </div>
+                    <div class="history-item">
+                        <p><strong>Servicio:</strong> Pedicure Tradicional</p>
+                        <p><strong>Fecha:</strong> 08/09/2023</p>
+                    </div>
+                    <!-- Agregar más servicios aquí -->
+                </div>
         </main>
+
     </div>
 
     <script>
