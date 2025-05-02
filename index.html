@@ -8,12 +8,12 @@
         const userRole = localStorage.getItem('userRole');
         
         // Redirección automática según rol
-        if(userRole === 'admin') {
-            window.location.href = '/pages/admin/dashboard.html';
-        } else if(userRole === 'client') {
-            window.location.href = '/pages/client/home.html';
+        if(userRole === 'client') {
+            window.location.href = '/Paginas/Clientes/Home.html';
+        } else if (userRole === 'Admin') {
+            window.location.href = '/Paginas/Admin/Home.html';
         } else {
-            window.location.href = '/auth/login.html';
+            window.location.href = '/Paginas/Clientes/Home.html';
         }
     </script>
 </head>

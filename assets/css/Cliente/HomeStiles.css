@@ -860,4 +860,40 @@
                                 font-size: 0.8rem;
                             }
                         }
-
+/* —————————— AJUSTES PARA SCROLL SUAVE —————————— */
+/* Offset para que las secciones no queden ocultas bajo la navbar */
+section.catalog {
+    scroll-margin-top: 80px; /* ajusta según la altura real de tu nav */
+    padding: var(--space-lg) 0;
+  }
+  
+  /* —————————— ESTILO DE ENCABEZADOS DE CATÁLOGO —————————— */
+  section.catalog h2 {
+    font-size: 2rem;
+    margin: var(--space-md) 0;
+    color: var(--neutral-900);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* —————————— GRID PARA ITEMS —————————— */
+  .catalog-items {
+    display: grid;
+    /* mínimo 200px por tarjeta, se adapta al espacio */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  /* —————————— ESTADO ACTIVE EN LA NAVBAR —————————— */
+  /* (Si no lo tienes ya) */
+  .NavBarCategorias a.active {
+    background: var(--navbar-button-color);
+    color: var(--neutral-100);
+  }
+  
+  /* —————————— HOVER EN LA NAVBAR —————————— */
+  .NavBarCategorias a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+  
