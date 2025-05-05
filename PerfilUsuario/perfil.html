@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- Esto le dice al navegador que el archivo es un documento HTML5 -->
+
+<html lang="en">
+<!-- Aquí comienza el documento HTML -->
+
+<head>
+    <!-- Parte de arriba de la página, donde se configuran cosas que no se ven -->
+    <meta charset="UTF-8">
+    <!-- Permite usar letras con tildes y la ñ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página se vea bien en celular, tablet o computador -->
+    <title>Perfil de Usuario</title>
+    <!-- El nombre que se ve en la pestaña del navegador -->
+    <link rel="stylesheet" href="perfil.css">
+    <!-- Aquí se conecta el archivo que da estilo a la página -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Conecta una herramienta llamada Bootstrap para dar buen diseño a la página -->
+</head>
+
+<body>
+    <!-- Aquí empieza todo lo que se verá en la pantalla -->
+
+    <div class="container light-style flex-grow-1 container-p-y">
+        <!-- Caja principal que contiene todo el contenido -->
+
+        <h4 class="font-weight-bold py-3 mb-4">
+            Configuración de cuenta
+            <!-- Título grande de la página -->
+        </h4>
+
+        <div class="card overflow-hidden">
+            <!-- Tarjeta que agrupa todo el contenido -->
+
+            <div class="row no-gutters row-bordered row-border-light">
+                <!-- Fila que divide la pantalla en columnas -->
+
+                <div class="col-md-3 pt-0">
+                    <!-- Columna izquierda, ocupa menos espacio -->
+
+                    <div class="list-group list-group-flush account-settings-links">
+                        <!-- Menú de enlaces para moverse entre las secciones -->
+
+                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">Información general</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Cambiar contraseña</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">Información</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">Notificaciones</a>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <!-- Columna derecha, donde aparecen los formularios -->
+
+                    <div class="tab-content">
+                        <!-- Contenedor que cambia según la sección seleccionada -->
+
+                        <div class="tab-pane fade active show" id="account-general">
+                            <!-- Sección Información general -->
+
+                            <div class="card-body media align-items-center">
+                                <!-- Área para la foto de perfil -->
+
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-80">
+                                <!-- Imagen de perfil -->
+
+                                <div class="media-body ml-4">
+                                    <!-- Área de los botones -->
+
+                                    <label class="btn btn-outline-primary">
+                                        Subir una nueva foto
+                                        <!-- Botón para elegir una nueva foto -->
+                                        <input type="file" class="account-settings-fileinput">
+                                        <!-- Campo escondido para elegir archivo -->
+                                    </label> &nbsp;
+                                    <button type="button" class="btn btn-default md-btn-flat">Limpiar</button>
+                                    <!-- Botón para quitar la foto seleccionada -->
+
+                                    <div class="text-light small mt-1">
+                                        Permitido: JPG, GIF o PNG. Tamaño máximo: 800K
+                                        <!-- Mensaje que explica qué tipo de imagen se puede subir -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-light m-0">
+                            <!-- Línea que separa secciones -->
+
+                            <div class="card-body">
+                                <!-- Área para llenar información personal -->
+
+                                <div class="form-group">
+                                    <label class="form-label">Usuario</label>
+                                    <input type="text" class="form-control mb-1" value="nmaxwell">
+                                    <!-- Campo para el nombre de usuario -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" value="Nelle Maxwell">
+                                    <!-- Campo para el nombre real -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Correo electrónico</label>
+                                    <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
+                                    <!-- Campo para el correo -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="account-change-password">
+                            <!-- Sección para cambiar la contraseña -->
+
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Contraseña actual</label>
+                                    <input type="password" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Nueva contraseña</label>
+                                    <input type="password" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Repetir nueva contraseña</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="account-info">
+                            <!-- Sección de información adicional -->
+
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" value="RodrigoEjemplo">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Tipo de identificacion</label>
+                                    <select class="custom-select">
+                                        <option>TI</option>
+                                        <option selected>CC</option>
+                                        <option>Cedula Extranjera</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Numero Identificacion</label>
+                                    <input type="text" class="form-control" value="10225896">
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Contacto</h6>
+                                <div class="form-group">
+                                    <label class="form-label">Identificador telefonico</label>
+                                    <select class="custom-select">
+                                        <option>+0</option>
+                                        <option selected>+57</option>
+                                        <option>+89</option>
+                                        <option>+98</option>
+                                        <option>+7</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Celular</label>
+                                    <input type="text" class="form-control" value="3143587569">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="account-notifications">
+                            <!-- Sección de notificaciones -->
+
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">WhatsApp</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Recibir notificaciones de recordatorio de las citas programadas</span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <hr class="border-light m-0">
+
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Correo Electornico</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Recibir notificaciones de recordatorio de las citas programadas</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-right mt-3">
+            <!-- Botones para guardar o cancelar lo que se llenó en el formulario -->
+            <button type="button" class="btn btn-primary">Guardar cambios</button>&nbsp;
+            <button type="button" class="btn btn-default">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Programitas que ayudan a que los botones y menús funcionen correctamente -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
