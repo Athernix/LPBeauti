@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/assets/css/Cliente/MenuContainer.css"> <!-- Estilo de la barra lateral o menu principal-->
     <!-- Scripts -->
     <script src="./assets/js/menuToggle.js" defer></script> <!-- Script para el menú móvil -->
+    <script src="/assets/js/Cliente/FormularioCitas.js"></script>
     
 </head>
 
@@ -118,7 +119,7 @@
             <picture>
                 <img src="/assets/images/general/Manicura/Uñas.jpg" alt="Manicure" class="catalog-image">
             </picture>
-            <h3 class="catalog-title">Manicure</h3>
+            <h3 class="catalog-title">Pedicure</h3>
             <p class="catalog-description">Disfruta de un manicure profesional con productos de alta calidad.</p>
         </article>
         <article class="catalog-item">
@@ -246,12 +247,39 @@
             <picture>
                 <img src="/assets/images/general/Manicura/Uñas.jpg" alt="Manicure" class="catalog-image">
             </picture>
-            <h3 class="catalog-title">Manicure</h3>
+            <h3 class="catalog-title">Prueba</h3>
             <p class="catalog-description">Disfruta de un manicure profesional con productos de alta calidad.</p>
         </article>
       </div>
     </section>
   </main>
+  <!--Formulario de citas -->
+  <!-- Formulario de reserva (oculto por defecto) -->
+<section id="reserva-form" class="reserva-form" style="display: none;">
+    <div class="reserva-content">
+      <h2 id="reserva-titulo">Reservar cita</h2>
+      <p id="reserva-desc">Descripción del servicio seleccionado.</p>
+      <form id="formulario-reserva">
+        <input type="hidden" name="servicio" id="input-servicio" value="">
+        <div class="form-group">
+          <label for="fecha">Fecha de la cita:</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <div class="form-group">
+          <label for="hora">Hora de inicio:</label>
+          <input type="time" id="hora" name="hora" required>
+        </div>
+        <div class="form-group">
+            <p id="reserva-precio" class="reserva-precio"></p>
+        </div>
+        
+        <div class="botones-form">
+          <button type="submit" class="btn-reservar">Reservar cita</button>
+          <button type="button" class="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </section>
   
                   
 
@@ -273,33 +301,6 @@
         </main>
     </div>
 </body>
-<!-- Incluye este bloque al final de tu <body>, antes de </body> -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Seleccionamos todos los enlaces de la barra de categorías
-      const enlaces = document.querySelectorAll('.NavBarCategorias a'); // :contentReference[oaicite:0]{index=0}
-  
-      enlaces.forEach(link => {
-        // 2. Añadimos el listener de clic a cada enlace
-        link.addEventListener('click', e => { // :contentReference[oaicite:1]{index=1}
-          e.preventDefault();
-  
-          // 3. Actualizar clase 'active'
-          const previo = document.querySelector('.NavBarCategorias a.active');
-          if (previo) previo.classList.remove('active');
-          link.classList.add('active');
-  
-          // 4. Determinar la sección destino a partir del texto del enlace
-          const clave = link.textContent.trim().toLowerCase(); 
-          const destino = document.getElementById(`catalog-${clave}`);
-  
-          // 5. Scroll suave hasta la sección
-          if (destino) {
-            destino.scrollIntoView({ behavior: 'smooth' }); // :contentReference[oaicite:2]{index=2}
-          }
-        });
-      });
-    });
-  </script>
+
   
 </html>
