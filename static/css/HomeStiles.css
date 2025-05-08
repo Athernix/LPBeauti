@@ -1,0 +1,938 @@
+/* ============ VARIABLES PRINCIPALES ============ */                /* ============ VARIABLES PRINCIPALES ============ */
+                        /* Definición de colores, dimensiones, espaciados, bordes y sombras */
+                        
+                         :root {
+                            /* Colores principales */
+                            --primary-500: #7A5CFF;
+                            /* Morado principal */
+                            --primary-600: #6342F5;
+                            /* Morado oscuro */
+                            --primary-100: #F4F1FF;
+                            /* Fondo morado claro */
+                            --accent-500: #FF7D7D;
+                            /* Coral */
+                            --neutral-900: #2D2D2D;
+                            /* Texto principal */
+                            --neutral-600: #5A5A5A;
+                            /* Texto secundario */
+                            --neutral-100: #FFFFFF;
+                            /* Fondo blanco */
+                            --navbar-button-color: #D4AF37;
+                            /* Dorado para botones del menú */
+                            --capsule-background: #F8C8DC;
+                            /* Rosa para cápsulas de fondo */
+                            /* Dimensiones */
+                            --sidebar-width: 110px;
+                            /* Ancho del menú lateral */
+                            --catalog-image-height: 420px;
+                            /* Altura de las imágenes del catálogo */
+                            /* Espaciados */
+                            --space-xs: 0.75rem;
+                            /* Espaciado extra pequeño */
+                            --space-sm: 1.25rem;
+                            /* Espaciado pequeño */
+                            --space-md: 2rem;
+                            /* Espaciado mediano */
+                            --space-lg: 3.5rem;
+                            /* Espaciado grande */
+                            /* Bordes */
+                            --radius-sm: 8px;
+                            /* Bordes redondeados pequeños */
+                            --radius-md: 12px;
+                            /* Bordes redondeados medianos */
+                            --radius-lg: 20px;
+                            /* Bordes redondeados grandes */
+                            /* Sombras */
+                            --shadow-primary: 0 6px 20px rgba(122, 92, 255, 0.25);
+                            /* Sombra principal */
+                            --shadow-card: 0 4px 12px rgba(122, 92, 255, 0.15);
+                            /* Sombra de tarjetas */
+                            --shadow-hover: 0 8px 24px rgba(122, 92, 255, 0.2);
+                            /* Sombra al pasar el cursor */
+                            /* Transiciones */
+                            --transition-duration: 0.3s;
+                            /* Duración de las transiciones */
+                            /* Variables para estilos responsivos */
+                            --item-info-padding-sm: 0.75rem;
+                            --item-info-padding-md: 1rem;
+                            --item-info-padding-lg: 1.25rem;
+                            --item-info-font-sm: 0.8rem;
+                            --item-info-font-md: 1rem;
+                            --item-info-font-lg: 1.2rem;
+                            --item-info-title-sm: 1rem;
+                            --item-info-title-md: 1.2rem;
+                            --item-info-title-lg: 1.4rem;
+                            --item-info-paragraph-sm: 0.9rem;
+                            --item-info-paragraph-md: 1rem;
+                            --item-info-paragraph-lg: 1.2rem;
+                        }
+                        /* ============ RESET Y BASE ============ */
+                        /* Estilos base y reinicio de márgenes y paddings */
+                        
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                            font-family: 'Inter', sans-serif;
+                            /* Fuente principal */
+                        }
+                        
+                        html {
+                            scroll-behavior: smooth;
+                            /* Comportamiento suave al desplazarse */
+                        }
+                        
+                        body {
+                            background: var(--neutral-100); /* Remove purple background */
+                            color: var(--neutral-600);
+                            line-height: 1.6;
+                            transition: background-color var(--transition-duration);
+                        }
+                        /* ============ ESTRUCTURA PRINCIPAL ============ */
+                        /* Contenedor principal */
+                        
+                        .Parent {
+                            display: flex;
+                            min-height: 100vh;
+                            /* Altura mínima de la ventana */
+                            position: relative;
+                        }
+
+                        /* ============ BOTONES AUTENTICACIÓN ============ */
+                        /* Botones de inicio de sesión y registro */
+                        
+                        .auth-buttons {
+                            position: fixed;
+                            top: 1rem;
+                            right: 1rem;
+                            display: flex;
+                            gap: var(--space-sm);
+                            z-index: 1000;
+                        }
+                        
+                        .btn-login,
+                        .btn-register {
+                            padding: 1rem 2rem;
+                            /* Peso de fuente */
+                            transition: background var(--transition-duration), box-shadow var(--transition-duration);
+                            /* Transiciones */
+                            border: none;
+                            /* Sin borde */
+                            cursor: pointer;
+                            /* Cambiar cursor al pasar */
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            /* Espaciado entre elementos internos */
+                        }
+                        
+                        .btn-login {
+                            background: var(--neutral-100);
+                            /* Fondo blanco */
+                            color: var(--primary-500);
+                            /* Texto morado */
+                            border: 2px solid var(--primary-100);
+                            /* Borde morado claro */
+                        }
+                        
+                        .btn-login:hover {
+                            background: var(--primary-100);
+                            /* Fondo morado claro al pasar */
+                        }
+                        
+                        .btn-register {
+                            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+                            /* Fondo degradado morado */
+                            color: var(--neutral-100);
+                            /* Texto blanco */
+                        }
+                        
+                        .btn-register:hover {
+                            box-shadow: var(--shadow-primary);
+                            /* Sombra al pasar */
+                        }
+                        /* ============ CONTENIDO PRINCIPAL ============ */
+                        /* Estilos del contenido principal */
+                        
+                        .main-content {
+                            margin-left: var(--sidebar-width);
+                            /* Margen izquierdo igual al ancho del menú */
+                            flex: 1;
+                            padding: var(--space-lg) 8%;
+                            /* Espaciado interno */
+                        }
+                        /* Título principal */
+                        
+                        .Nombre-Principal {
+                            text-align: center;
+                            /* Centrar texto */
+                            margin-bottom: var(--space-lg);
+                            /* Espaciado inferior */
+                        }
+                        
+                        .Nombre-Principal h1 {
+                            font-size: 2.8rem;
+                            /* Tamaño de fuente */
+                            letter-spacing: -1px;
+                            /* Espaciado entre letras */
+                            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+                            /* Fondo degradado morado */
+                            -webkit-background-clip: text;
+                            background-clip: text;
+                            /* Clip de fondo para texto */
+                            -webkit-text-fill-color: transparent;
+                            /* Texto transparente */
+                            margin-top: 1rem;
+                            /* Espaciado superior */
+                        }
+                        /* ============ CATEGORÍAS ============ */
+                        /* Barra de categorías */
+                        
+                        .NavBarCategorias {
+                            margin: var(--space-md) 0;
+                            /* Margen superior e inferior */
+                        }
+                        
+                        .NavBarCategorias ul {
+                            display: flex;
+                            justify-content: center;
+                            /* Centrar elementos */
+                            gap: var(--space-sm);
+                            /* Espaciado entre elementos */
+                            flex-wrap: wrap;
+                            /* Ajustar elementos en varias líneas */
+                            list-style: none;
+                            /* Sin estilo de lista */
+                            padding: 0;
+                            /* Sin padding */
+                        }
+                        
+                        .NavBarCategorias a {
+                            padding: 0.8rem 2rem;
+                            /* Espaciado interno */
+                            border-radius: 8px;
+                            /* Bordes redondeados */
+                            background: #cdcdcd;
+                            /* Fondo dorado */
+                            color: var(--neutral-600);
+                            /* Texto secundario */
+                            transition: all var(--transition-duration) ease;
+                            /* Transición suave */
+                            text-decoration: none;
+                            /* Sin subrayado */
+                            font-weight: 500;
+                            /* Peso de fuente */
+                            border: 2px solid #2D2D2D;
+                            /* Borde color #2D2D2D */
+                        }
+                        
+                        .NavBarCategorias a.active {
+                            background: #D4AF37;
+                            /* Fondo degradado morado */
+                            color: var(--neutral-100);
+                            /* Texto blanco */
+                        }
+                        
+                        .NavBarCategorias a:hover {
+                            transform: translateY(-2px);
+                            /* Mover hacia arriba */
+                            box-shadow: var(--shadow-card);
+                            /* Sombra al pasar */
+                        }
+                        /* ============ CATÁLOGO ============ */
+                        /* Estilos del catálogo */
+                        
+                        .Catalogo {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            /* 4 elementos por fila */
+                            gap: var(--space-md);
+                            /* Espaciado entre elementos */
+                            margin: var(--space-lg) 0;
+                            /* Margen superior e inferior */
+                        }
+                        
+                        .catalog-item {
+                            border-radius: var(--radius-md);
+                            /*Bordesredondeados*/
+                            overflow: hidden;
+                            /*Ocultarcontenidodesbordado*/
+                            position: relative;
+                            box-shadow: var(--shadow-card);
+                            /*Sombra*/
+                            transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+                            /*Transiciones*/
+                            cursor: pointer;
+                            /* Cambiar cursor al pasar */
+                             ;
+                            -webkit-transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+                            -moz-transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+                            -ms-transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+                            -o-transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+                        }
+                        
+                        .catalog-item:hover {
+                            box-shadow: var(--shadow-hover);
+                            /* Sombra al pasar */
+                        }
+                        
+                        .catalog-item img {
+                            width: 100%;
+                            /*Anchocompleto*/
+                            height: var(--catalog-image-height);
+                            /*Alturadefinida*/
+                            object-fit: cover;
+                            /*Ajustarimagen*/
+                            transition: transform var(--transition-duration);
+                            /* Transición de transformación */
+                             ;
+                            -webkit-transition: transform var(--transition-duration);
+                            -moz-transition: transform var(--transition-duration);
+                            -ms-transition: transform var(--transition-duration);
+                            -o-transition: transform var(--transition-duration);
+                        }
+                        
+                        .catalog-item:hover img {
+                            transform: scale(1.03);
+                            /* Escalar imagen al pasar */
+                        }
+                        
+                        .item-info {
+                            position: absolute;
+                            bottom: 0;
+                            /* Posición inferior */
+                            left: 0;
+                            /* Posición izquierda */
+                            right: 0;
+                            /* Posición derecha */
+                            padding: var(--item-info-padding-lg);
+                            /* Espaciado interno */
+                            background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 20%, transparent 100%);
+                            /* Fondo degradado */
+                            color: var(--neutral-100);
+                            /* Texto blanco */
+                            opacity: 0;
+                            /* Ocultar inicialmente */
+                            transition: opacity var(--transition-duration);
+                            /* Transición de opacidad */
+                            font-size: var(--item-info-font-md);
+                        }
+                        
+                        .catalog-item:hover .item-info {
+                            opacity: 1;
+                            /* Mostrar al pasar */
+                        }
+                        
+                        .item-info h3 {
+                            font-size: var(--item-info-title-lg);
+                            /* Tamaño de fuente */
+                            margin-bottom: 0.5rem;
+                            /* Espaciado inferior */
+                        }
+                        
+                        .item-info p {
+                            font-size: var(--item-info-paragraph-lg);
+                            /* Tamaño de fuente */
+                            font-weight: 700;
+                            /* Peso de fuente */
+                            color: var(--accent-500);
+                            /* Color coral */
+                        }
+                        /* ============ CONTACTO ============ */
+                        /* Sección de contacto */
+                        
+                        .contact-section {
+                            background: var(--capsule-background);
+                            /* Fondo rosa */
+                            padding: var(--space-lg);
+                            /* Espaciado interno */
+                            border-radius: var(--radius-lg);
+                            /* Bordes redondeados */
+                            margin-top: var(--space-lg);
+                            /* Margen superior */
+                            text-align: center;
+                            /* Centrar texto */
+                        }
+                        
+                        .contact-section a {
+                            color: var(--primary-100);
+                            /* Texto morado claro */
+                            text-decoration: none;
+                            /* Sin subrayado */
+                            font-size: 1.1rem;
+                            /* Tamaño de fuente */
+                            transition: color var(--transition-duration);
+                            /* Transición de color */
+                        }
+                        
+                        .contact-section a:hover {
+                            color: var(--accent-500);
+                            /* Texto coral al pasar */
+                        }
+                        /* ============ MODAL ============ */
+                        /* Estilos del modal */
+                        
+                        .procedure-modal {
+                            position: fixed;
+                            top: 0;
+                            /* Posición superior */
+                            left: 0;
+                            /* Posición izquierda */
+                            width: 100%;
+                            /* Ancho completo */
+                            height: 100%;
+                            /* Altura completa */
+                            background: rgba(0, 0, 0, 0.5);
+                            /* Fondo semitransparente */
+                            display: flex;
+                            justify-content: center;
+                            /* Centrar contenido */
+                            align-items: center;
+                            z-index: 2000;
+                            /* Prioridad de apilamiento */
+                            backdrop-filter: blur(5px);
+                            /* Filtro de desenfoque */
+                        }
+                        
+                        .modal-content {
+                            background: var(--neutral-100);
+                            /* Fondo blanco */
+                            padding: var(--space-lg);
+                            /* Espaciado interno */
+                            border-radius: var(--radius-lg);
+                            /* Bordes redondeados */
+                            position: relative;
+                            max-width: 600px;
+                            /* Ancho máximo */
+                            width: 90%;
+                            /* Ancho relativo */
+                            animation: modalSlide var(--transition-duration) ease-out;
+                            /* Animación de entrada */
+                        }
+                        
+                        .modal-close {
+                            position: absolute;
+                            top: 1rem;
+                            /* Posición superior */
+                            right: 1rem;
+                            /* Posición derecha */
+                            background: none;
+                            /* Sin fondo */
+                            border: none;
+                            /* Sin borde */
+                            cursor: pointer;
+                            /* Cambiar cursor al pasar */
+                            font-size: 1.5rem;
+                            /* Tamaño de fuente */
+                            color: var(--neutral-600);
+                            /* Color secundario */
+                        }
+                        
+                        .btn-agendar {
+                            width: 100%;
+                            /* Ancho completo */
+                            padding: 1rem;
+                            /* Espaciado interno */
+                            background: var(--primary-500);
+                            /* Fondo morado */
+                            color: var(--neutral-100);
+                            /* Texto blanco */
+                            border: none;
+                            /* Sin borde */
+                            border-radius: var(--radius-sm);
+                            /* Bordes redondeados pequeños */
+                            font-weight: 600;
+                            /* Peso de fuente */
+                            cursor: pointer;
+                            /* Cambiar cursor al pasar */
+                            transition: background var(--transition-duration);
+                            /* Transición de fondo */
+                        }
+                        
+                        .btn-agendar:hover {
+                            background: var(--primary-600);
+                            /* Fondo morado oscuro al pasar */
+                        }
+                        /* ============ RESPONSIVE ============ */
+                        /* Estilos para pantallas pequeñas */
+                        
+                        @media (max-width: 1024px) {
+                            .catalog-item img {
+                                height: 250px; /* Ajustar la altura de las imágenes */
+                                object-fit: contain; /* Ajustar las imágenes sin recortar */
+                                border-radius: var(--radius-sm); /* Bordes redondeados */
+                                box-shadow: var(--shadow-card); /* Agregar sombra */
+                            }
+                        }
+
+                        @media (max-width: 768px) {
+                             :root {
+                                --sidebar-width: 80px;
+                                /* Ancho reducido del menú */
+                                --catalog-image-height: 300px;
+                            }
+                            .sidebar {
+                                transform: translateX(-100%);
+                                /* Ocultar menú */
+                            }
+                            .sidebar.active {
+                                transform: translateX(0);
+                                /* Mostrar menú */
+                                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2); /* Stronger shadow when active */
+                            }
+                            .mobile-menu-toggle {
+                                display: flex;
+                            }
+                            .main-content {
+                                padding: var(--space-md);
+                                /* Espaciado interno reducido */
+                                margin-left: 0;
+                                /* Sin margen izquierdo */
+                            }
+                            .Nombre-Principal h1 {
+                                font-size: 2.2rem;
+                                /* Tamaño de fuente reducido */
+                            }
+                            .Catalogo {
+                                grid-template-columns: 1fr;
+                                /* Una columna para las imágenes */
+                            }
+                            .catalog-item img {
+                                height: 180px; /* Reducir la altura de las imágenes */
+                                object-fit: contain; /* Ajustar las imágenes sin recortar */
+                                border-radius: var(--radius-md); /* Bordes redondeados medianos */
+                                box-shadow: var(--shadow-card); /* Agregar sombra */
+                            }
+                            .item-info {
+                                padding: var(--item-info-padding-md);
+                                /* Reduce padding for smaller screens */
+                                font-size: var(--item-info-font-md);
+                                /* Adjust font size */
+                            }
+                            .item-info h3 {
+                                font-size: var(--item-info-title-md);
+                                /* Reduce title font size */
+                            }
+                            .item-info p {
+                                font-size: var(--item-info-paragraph-md);
+                                /* Reduce paragraph font size */
+                            }
+                            .auth-buttons {
+                                flex-direction: column;
+                                gap: var(--space-sm);
+                                top: var(--space-sm);
+                                right: var(--space-sm);
+                            }
+
+                            .auth-state.logged-out,
+                            .auth-state.logged-in {
+                                flex-direction: column;
+                                align-items: center;
+                                gap: var(--space-xs);
+                            }
+
+                            .btn-login,
+                            .btn-register,
+                            .btn-logout {
+                                width: 100%;
+                                padding: 0.8rem 1rem;
+                                font-size: 0.9rem;
+                            }
+
+                            .user-profile {
+                                flex-direction: column;
+                                align-items: center;
+                                gap: var(--space-xs);
+                            }
+
+                            .user-avatar {
+                                width: 50px;
+                                height: 50px;
+                            }
+
+                            .user-info {
+                                text-align: center;
+                            }
+                        }
+                        
+                        @media (max-width: 480px) {
+                            .auth-buttons {
+                                top: 1rem;
+                                /* Posición superior */
+                                right: 1rem;
+                                /* Posición derecha */
+                                flex-direction: column;
+                                /* Botones en columna */
+                                background-color: #7A5CFF;
+                                gap: var(--space-xs);
+                            }
+                            .btn-login,
+                            .btn-register {
+                                padding: 0.8rem 1.5rem;
+                                /* Espaciado interno reducido */
+                                font-size: 0.9rem;
+                                /* Tamaño de fuente reducido */
+                            }
+                            .NavBarCategorias a {
+                                padding: 0.6rem 1.2rem;
+                                /* Espaciado interno reducido */
+                                font-size: 0.9rem;
+                                /* Tamaño de fuente reducido */
+                            }
+                            .catalog-item img {
+                                height: 140px; /* Reducir aún más la altura de las imágenes */
+                                object-fit: cover; /* Ajustar las imágenes para que se vean bien */
+                                border-radius: var(--radius-lg); /* Bordes redondeados grandes */
+                            }
+
+                            .catalog-item {
+                                margin-bottom: 1.5rem; /* Agregar espacio entre elementos */
+                            }
+                            .item-info {
+                                padding: var(--item-info-padding-sm);
+                                /* Further reduce padding for very small screens */
+                                font-size: var(--item-info-font-sm);
+                                /* Adjust font size */
+                            }
+                            .item-info h3 {
+                                font-size: var(--item-info-title-sm);
+                                /* Further reduce title font size */
+                            }
+                            .item-info p {
+                                font-size: var(--item-info-paragraph-sm);
+                                /* Further reduce paragraph font size */
+                            }
+                            .btn-login,
+                            .btn-register,
+                            .btn-logout {
+                                padding: 0.6rem 0.8rem;
+                                font-size: 0.8rem;
+                            }
+
+                            .user-avatar {
+                                width: 40px;
+                                height: 40px;
+                            }
+
+                            .user-welcome {
+                                font-size: 0.9rem;
+                            }
+                        }
+                        /* ============ ANIMACIONES ============ */
+                        /* Animación de entrada del modal */
+                        
+                        @keyframes modalSlide {
+                            from {
+                                opacity: 0;
+                                /* Opacidad inicial */
+                                transform: translateY(20%);
+                                /* Posición inicial */
+                            }
+                            to {
+                                opacity: 1;
+                                /* Opacidad final */
+                                transform: translateY(0);
+                                /* Posición final */
+                            }
+                        }
+
+                        /* ============ ESTADOS DE AUTENTICACIÓN ============ */
+                        .auth-state {
+                            display: none;
+                            /* Ocultar por defecto */
+                        }
+
+                        .auth-state.logged-out {
+                            display: flex;
+                            /* Mostrar cuando no autenticado */
+                            gap: 1rem;
+                            /* Espaciado entre botones */
+                        }
+
+                        .auth-state.logged-in {
+                            display: flex;
+                            /* Mostrar cuando autenticado */
+                            align-items: center;
+                            gap: 1rem;
+                            /* Espaciado entre elementos */
+                        }
+
+                        .user-profile {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+                            /* Espaciado entre avatar e información */
+                        }
+
+                        .user-avatar {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            /* Imagen circular */
+                            object-fit: cover;
+                            /* Ajustar imagen */
+                        }
+
+                        .user-info {
+                            display: flex;
+                            flex-direction: column;
+                            /* Información en columna */
+                            font-size: 0.9rem;
+                            /* Tamaño de fuente */
+                            color: var(--neutral-900);
+                            /* Texto principal */
+                        }
+
+                        .user-name span {
+                            font-weight: bold;
+                            /* Resaltar nombre */
+                        }
+
+                        .btn-logout {
+                            padding: 0.5rem 1rem;
+                            background: var(--accent-500);
+                            /* Fondo coral */
+                            color: var(--neutral-100);
+                            /* Texto blanco */
+                            border: none;
+                            border-radius: var(--radius-sm);
+                            /* Bordes redondeados */
+                            cursor: pointer;
+                            transition: background var(--transition-duration);
+                            /* Transición suave */
+                        }
+
+                        .btn-logout:hover {
+                            background: #e06666;
+                            /* Fondo coral más oscuro al pasar */
+                        }
+
+                        /* Welcome message styling */
+                        .user-welcome {
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: var(--primary-600);
+                            margin-top: 0.5rem;
+                            /* Espaciado superior */
+                            text-align: center;
+                            /* Centrar texto */
+                        }
+
+                        .auth-state.logged-in .user-info {
+                            display: none;
+                        }
+
+                        .profile-section {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin: var(--space-lg) 0;
+                        }
+
+                        .profile-card {
+                            text-align: center;
+                            background: var(--neutral-100);
+                            padding: var(--space-md);
+                            border-radius: var(--radius-lg);
+                            box-shadow: var(--shadow-card);
+                            max-width: 400px;
+                            width: 100%;
+                        }
+
+                        .profile-avatar {
+                            width: 120px;
+                            height: 120px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            margin-bottom: var(--space-sm);
+                        }
+
+                        .profile-name {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            color: var (--neutral-900);
+                            margin-bottom: var(--space-xs);
+                        }
+
+                        .profile-email {
+                            font-size: 1rem;
+                            color: var(--neutral-600);
+                            margin-bottom: var(--space-sm);
+                        }
+
+                        .btn-edit-profile {
+                            padding: 0.8rem 1.5rem;
+                            background: var(--primary-500);
+                            color: var(--neutral-100);
+                            border: none;
+                            border-radius: var(--radius-sm);
+                            cursor: pointer;
+                            transition: background var(--transition-duration);
+                        }
+
+                        .btn-edit-profile:hover {
+                            background: var(--primary-600);
+                        }
+
+                        .additional-info {
+                            margin-top: var(--space-lg);
+                            padding: var(--space-md);
+                            background: var(--neutral-100);
+                            border-radius: var(--radius-lg);
+                            box-shadow: var(--shadow-card);
+                        }
+
+                        .additional-info h2 {
+                            font-size: 1.4rem;
+                            color: var(--neutral-900);
+                            margin-bottom: var(--space-sm);
+                        }
+
+                        .additional-info ul {
+                            list-style: none;
+                            padding: 0;
+                        }
+
+                        .additional-info li {
+                            font-size: 1rem;
+                            color: var(--neutral-600);
+                            margin-bottom: var(--space-xs);
+                        }
+
+                        @media (max-width: 768px) {
+                            .profile-card {
+                                padding: var(--space-sm);
+                            }
+
+                            .profile-avatar {
+                                width: 100px;
+                                height: 100px;
+                            }
+
+                            .profile-name {
+                                font-size: 1.3rem;
+                            }
+
+                            .profile-email {
+                                font-size: 0.9rem;
+                            }
+
+                            .btn-edit-profile {
+                                font-size: 0.9rem;
+                            }
+
+                            .additional-info {
+                                padding: var(--space-sm);
+                            }
+
+                            .additional-info h2 {
+                                font-size: 1.2rem;
+                            }
+
+                            .additional-info li {
+                                font-size: 0.9rem;
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .profile-avatar {
+                                width: 80px;
+                                height: 80px;
+                            }
+
+                            .profile-name {
+                                font-size: 1.1rem;
+                            }
+
+                            .profile-email {
+                                font-size: 0.8rem;
+                            }
+
+                            .btn-edit-profile {
+                                font-size: 0.8rem;
+                                padding: 0.6rem 1rem;
+                            }
+
+                            .additional-info h2 {
+                                font-size: 1rem;
+                            }
+
+                            .additional-info li {
+                                font-size: 0.8rem;
+                            }
+                        }
+/* —————————— AJUSTES PARA SCROLL SUAVE —————————— */
+/* Offset para que las secciones no queden ocultas bajo la navbar */
+section.catalog {
+    scroll-margin-top: 80px; /* ajusta según la altura real de tu nav */
+    padding: var(--space-lg) 0;
+  }
+  
+  /* —————————— ESTILO DE ENCABEZADOS DE CATÁLOGO —————————— */
+  section.catalog h2 {
+    font-size: 2rem;
+    margin: var(--space-md) 0;
+    color: var(--neutral-900);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* —————————— GRID PARA ITEMS —————————— */
+  .catalog-items {
+    display: grid;
+    /* mínimo 200px por tarjeta, se adapta al espacio */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  /* —————————— ESTADO ACTIVE EN LA NAVBAR —————————— */
+  /* (Si no lo tienes ya) */
+  .NavBarCategorias a.active {
+    background: var(--navbar-button-color);
+    color: var(--neutral-100);
+  }
+  
+  /* —————————— HOVER EN LA NAVBAR —————————— */
+  .NavBarCategorias a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+  .reserva-form {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .reserva-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .botones-form {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-reservar, .btn-cancelar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-reservar { background: #28a745; color: #fff; }
+  .btn-cancelar { background: #dc3545; color: #fff; }
+  
+
+  .reserva-precio {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
