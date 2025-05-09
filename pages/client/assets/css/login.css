@@ -1,0 +1,404 @@
+/* ============================================= */
+
+
+/* ESTILOS GENERALES PARA TODA LA PÁGINA */
+
+
+/* ============================================= */
+
+body {
+    font-family: Arial, sans-serif;
+    /* Fuente principal del documento */
+    background-color: #f5f5f5;
+    /* Color de fondo gris claro */
+    display: flex;
+    /* Activa el modelo de caja flexible */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: 100vh;
+    /* Altura igual al 100% del viewport */
+    margin: 0;
+    /* Elimina márgenes por defecto */
+}
+
+
+/* ============================================= */
+
+
+/* CONTENEDOR PRINCIPAL DEL FORMULARIO */
+
+
+/* ============================================= */
+
+.form-container {
+    background-color: white;
+    /* Fondo blanco para el formulario */
+    padding: 30px;
+    /* Espaciado interno */
+    border-radius: 10px;
+    /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    width: 100%;
+    /* Ancho completo */
+    max-width: 400px;
+    /* Ancho máximo para pantallas grandes */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA EL TÍTULO DEL FORMULARIO */
+
+
+/* ============================================= */
+
+.form-container h1 {
+    text-align: center;
+    /* Centra el texto */
+    margin-bottom: 25px;
+    /* Espacio inferior */
+    color: #333;
+    /* Color de texto oscuro */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA LOS GRUPOS DE FORMULARIO */
+
+
+/* ============================================= */
+
+.form-group {
+    margin-bottom: 20px;
+    /* Espacio entre cada grupo */
+}
+
+
+/* Estilos para las etiquetas de los campos */
+
+.form-group label {
+    display: block;
+    /* Hace que ocupe toda la línea */
+    margin-bottom: 8px;
+    /* Espacio debajo de la etiqueta */
+    font-weight: bold;
+    /* Texto en negrita */
+    color: #555;
+    /* Color de texto gris oscuro */
+}
+
+
+/* Estilos para los campos de entrada */
+
+.form-group input {
+    width: 100%;
+    /* Ancho completo */
+    padding: 12px;
+    /* Espaciado interno */
+    border: 1px solid #ddd;
+    /* Borde sutil */
+    border-radius: 5px;
+    /* Esquinas ligeramente redondeadas */
+    font-size: 16px;
+    /* Tamaño de fuente legible */
+    box-sizing: border-box;
+    /* Modelo de caja que incluye padding en el ancho */
+}
+
+
+/* Estilos cuando un campo está enfocado (seleccionado) */
+
+.form-group input:focus {
+    outline: none;
+    /* Elimina el contorno por defecto */
+    border-color: #4a90e2;
+    /* Cambia color del borde */
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+    /* Sombra sutil azul */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA EL DIVISOR CON TEXTO EN MEDIO */
+
+
+/* ============================================= */
+
+.divider {
+    text-align: center;
+    /* Centra el contenido */
+    margin: 15px 0;
+    /* Espacio arriba y abajo */
+    color: #888;
+    /* Color de texto gris */
+    font-size: 14px;
+    /* Tamaño de fuente pequeño */
+    position: relative;
+    /* Necesario para el pseudo-elemento */
+}
+
+
+/* Estilos para el texto dentro del divisor */
+
+.divider span {
+    background-color: white;
+    /* Fondo blanco para superponer la línea */
+    padding: 0 10px;
+    /* Espaciado horizontal */
+    position: relative;
+    /* Posicionamiento relativo */
+    z-index: 1;
+    /* Coloca sobre la línea */
+}
+
+
+/* Crea la línea decorativa detrás del texto */
+
+.divider::before {
+    content: "";
+    /* Necesario para pseudo-elementos */
+    position: absolute;
+    /* Posicionamiento absoluto */
+    top: 40%;
+    /* Posición vertical */
+    left: 0;
+    /* Desde la izquierda */
+    right: 0;
+    /* Hasta la derecha */
+    height: 1px;
+    /* Grosor de la línea */
+    background-color: #958d8d;
+    /* Color de la línea */
+    z-index: 0;
+    /* Coloca detrás del texto */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA EL LOGO DE GOOGLE */
+
+
+/* ============================================= */
+
+.logoGoogle {
+    width: 60px;
+    /* Ancho fijo */
+    margin-top: 20px;
+    /* Espacio superior */
+    padding: auto;
+    /* Padding automático (poco común) */
+    align-items: center;
+    /* Centrado vertical (necesita display:flex en el padre) */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA EL BOTÓN DE INICIAR SESIÓN */
+
+
+/* ============================================= */
+
+.register-btn {
+    width: 100%;
+    /* Ancho completo */
+    padding: 10px;
+    /* Espaciado interno */
+    background-color: #F8C8DC;
+    /* Color rosa claro de fondo */
+    color: #000000;
+    /* Texto negro */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Esquinas redondeadas */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    font-weight: bold;
+    /* Texto en negrita */
+    cursor: pointer;
+    /* Cursor tipo pointer al pasar */
+    transition: background-color 0.3s;
+    /* Transición suave del color */
+}
+
+
+/* Efecto hover para el botón */
+
+.register-btn:hover {
+    background-color: #D4AF37;
+    /* Cambia a color dorado */
+}
+
+
+/* ============================================= */
+
+
+/* ESTILOS PARA EL ENLACE "OLVIDASTE TU CONTRASEÑA" */
+
+
+/* ============================================= */
+
+.olvidar-contraseña {
+    display: inline-block;
+    /* Ocupa solo el espacio del contenido */
+    font-size: 12px;
+    /* Tamaño de fuente pequeño */
+    margin-top: 12px;
+    /* Espacio superior */
+    color: #202020;
+    /* Color de texto gris medio */
+    text-decoration: none;
+    /* Elimina subrayado por defecto */
+    transition: color 0.3s;
+    /* Transición suave del color */
+    padding: 2px 5px;
+}
+
+
+/* Efecto hover para el enlace */
+
+.olvidar-contraseña:hover {
+    color: #D4AF37;
+    /* Cambia a color rosa claro */
+    text-decoration: underline;
+    /* Añade subrayado */
+}
+
+
+/* ============================================= */
+
+
+/* MEDIA QUERIES PARA DISPOSITIVOS TABLET */
+
+
+/* (768px a 1024px) */
+
+
+/* ============================================= */
+
+@media (max-width: 1024px) {
+    .form-container {
+        padding: 25px;
+        /* Reduce el padding */
+        max-width: 350px;
+        /* Reduce el ancho máximo */
+    }
+    .form-container h1 {
+        font-size: 24px;
+        /* Reduce tamaño de fuente */
+        margin-bottom: 20px;
+        /* Ajusta espacio inferior */
+    }
+    .form-group input {
+        padding: 10px;
+        /* Reduce padding de inputs */
+    }
+    .register-btn {
+        padding: 10px;
+        /* Reduce padding del botón */
+    }
+}
+
+
+/* ============================================= */
+
+
+/* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES */
+
+
+/* (hasta 767px) */
+
+
+/* ============================================= */
+
+@media (max-width: 767px) {
+    body {
+        padding: 15px;
+        /* Añade padding al body */
+    }
+    .form-container {
+        padding: 20px;
+        /* Reduce más el padding */
+        max-width: 100%;
+        /* Ocupa todo el ancho disponible */
+        border-radius: 8px;
+        /* Ajusta bordes redondeados */
+    }
+    .form-container h1 {
+        font-size: 22px;
+        /* Reduce más el tamaño de fuente */
+        margin-bottom: 15px;
+        /* Ajusta espacio */
+    }
+    .form-group {
+        margin-bottom: 15px;
+        /* Reduce espacio entre grupos */
+    }
+    .form-group input {
+        padding: 10px;
+        /* Mantiene padding reducido */
+        font-size: 15px;
+        /* Reduce tamaño de fuente */
+    }
+    .divider {
+        margin: 20px 0;
+        /* Ajusta márgenes */
+        font-size: 13px;
+        /* Reduce tamaño de fuente */
+    }
+    .logoGoogle {
+        width: 40px;
+        /* Reduce tamaño del logo */
+        margin-top: 10px;
+        /* Ajusta margen superior */
+    }
+    .register-btn {
+        padding: 10px;
+        /* Mantiene padding reducido */
+        font-size: 15px;
+        /* Reduce tamaño de fuente */
+    }
+}
+
+
+/* ============================================= */
+
+
+/* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES PEQUEÑOS */
+
+
+/* (hasta 480px) */
+
+
+/* ============================================= */
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 15px;
+        /* Padding mínimo */
+    }
+    .form-container h1 {
+        font-size: 20px;
+        /* Tamaño de fuente más pequeño */
+    }
+    .divider p {
+        font-size: 12px;
+        /* Reduce tamaño de fuente del divisor */
+    }
+    .logoGoogle {
+        width: 40px;
+        /* Mantiene tamaño reducido */
+    }
+}
